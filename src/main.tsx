@@ -5,9 +5,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 const App = lazy(() => import('./pages/App.tsx'));
 const AuthenticationLayout = lazy(() => import('./pages/authenticationlayout.tsx'));
-const Rpcover = lazy(() => import('./components/pages/authentication/reset-password/cover/cover.tsx'));
 const Sicover = lazy(() => import('./components/pages/authentication/sign-in/cover/cover.tsx'));
-const Sucover = lazy(() => import('./components/pages/authentication/sign-up/cover/cover.tsx'));
 
 import RootWrapper from './pages/Rootwrapper.tsx';
 import { RouteData } from './shared/data/routingdata.tsx';
@@ -29,8 +27,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           </Route>
 
           <Route path={`${import.meta.env.BASE_URL}`} element={<AuthenticationLayout />}>
-            <Route path={`${import.meta.env.BASE_URL}pages/authentication/reset-password/cover`} element={<Rpcover />} />
-            <Route path={`${import.meta.env.BASE_URL}pages/authentication/sign-up/cover`} element={<Sucover />} />
             <Route path={`${import.meta.env.BASE_URL}pages/authentication/sign-in/cover`} element={<Sicover />} />
           </Route>
         

@@ -1,63 +1,45 @@
 
-import SpkButton from "../../../../../shared/@spk-reusable-components/general-reusable/reusable-uielements/spk-buttons";
-import Seo from "../../../../../shared/layouts-components/seo/seo";
-import { Fragment, useState } from "react"
+import { Fragment, useState } from "react";
 import { Card, Col, Form, Image, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import togglelogo from '../../../../../assets/images/brand-logos/toggle-logo.png';
-import BG9 from '../../../../../assets/images/media/backgrounds/9.png';
-import media72 from '../../../../../assets/images/media/media-72.png';
-import facebook from '../../../../../assets/images/media/apps/facebook.png';
-import google from '../../../../../assets/images/media/apps/google.png';
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import Seo from "../../../../../shared/layouts-components/seo/seo";
+import togglelogo from "../../../../../assets/images/brand-logos/toggle-logo.png";
+import BG9 from "../../../../../assets/images/media/backgrounds/9.png";
+import media72 from "../../../../../assets/images/media/media-72.png";
+import BaseInput from "../../../../base/BaseInput";
+import BaseButton from "../../../../base/BaseButton";
+import { InputPlaceHolder, validationMessages, emailRegex } from "../../../../constants/Validation";
+import { SignUpLabel } from "../../../../constants/SignUp";
 interface CoverProps { }
 
 const Cover: React.FC<CoverProps> = () => {
+    const navigate = useNavigate();
+    const [btnLoader, setBtnLoader] = useState(false);
 
-    const [values, setValues] = useState<any>({
-        email: '',
-        password: '',
-        showPassword: false
+    const formik = useFormik({
+        initialValues: {
+            email: "",
+            password: "",
+        },
+        validationSchema: Yup.object({
+            email: Yup.string()
+                .required(validationMessages.required(SignUpLabel.Email))
+                .matches(emailRegex, validationMessages.format(SignUpLabel.Email)),
+            password: Yup.string().required(
+                validationMessages.required(SignUpLabel.Password)
+            ),
+        }),
+        onSubmit: (_values, { setSubmitting }) => {
+            setBtnLoader(true);
+            setTimeout(() => {
+                navigate(`${import.meta.env.BASE_URL}dashboards/sales/`);
+                setBtnLoader(false);
+                setSubmitting(false);
+            }, 300);
+        },
     });
-
-    const [errors, setErrors] = useState<any>({});
-
-    const validate = () => {
-        const newErrors: any = {};
-
-        // Email validation
-        if (!values.email) {
-            newErrors.email = "Email is required.";
-        } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-            newErrors.email = "Invalid email format.";
-        }
-
-        // Password validation
-        if (!values.password) {
-            newErrors.password = "Password is required.";
-        } else if (values.password.length < 6) {
-            newErrors.password = "Password must be at least 6 characters.";
-        }
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
-    const router = useNavigate()
-    const handleSubmit = (e: any) => {
-        e.preventDefault();
-        if (validate()) {
-            router(`${import.meta.env.BASE_URL}dashboards/sales/`);
-            toast.success('Login successful', {
-                position: 'top-right',
-                autoClose: 1500,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
-            // Handle form submission logic here
-        }
-    };
 
 
     return (
@@ -75,43 +57,38 @@ const Cover: React.FC<CoverProps> = () => {
                                         <h4 className="mb-1 fw-semibold">Hi,Welcome back!</h4>
                                         <p className="mb-4 text-muted fw-normal text-nowrap">Please enter your credentials</p>
                                     </div>
-                                    <Form onSubmit={handleSubmit}>
+                                    <Form noValidate onSubmit={formik.handleSubmit}>
                                         <Row className=" gy-3">
                                             <Col xl={12}>
-                                                <Form.Label htmlFor="signin-email" className="text-default">Email</Form.Label>
-                                                <Form.Control
+                                                <BaseInput
+                                                    label={SignUpLabel.Email}
+                                                    name="email"
                                                     type="email"
-                                                    className="form-control "
-                                                    id="signup-firstname"
-                                                    placeholder="Enter Email ID"
-                                                    value={values.email}
-                                                    onChange={(e) => setValues({ ...values, email: e.target.value })}
-                                                    isInvalid={!!errors.email}
+                                                    placeholder={InputPlaceHolder(SignUpLabel.Email)}
+                                                    value={formik.values.email}
+                                                    onChange={formik.handleChange}
+                                                    handleBlur={formik.handleBlur}
+                                                    error={formik.errors.email}
+                                                    touched={formik.touched.email}
+                                                    labelClassName="text-default"
+                                                    fullWidth
                                                 />
-                                                <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
                                             </Col>
                                             <Col xl={12} className="mb-2">
-                                                <Form.Label htmlFor="signin-password" className="text-default d-block">Password</Form.Label>
-                                                <div className="position-relative">
-                                                    <Form.Control
-                                                        type={values.showPassword ? "text" : "password"}
-                                                        className="form-control "
-                                                        id="signup-password"
-                                                        placeholder="Password"
-                                                        value={values.password}
-                                                        onChange={(e) => setValues({ ...values, password: e.target.value })}
-                                                        isInvalid={!!errors.password}
-                                                    />
-                                                    <Link to="#!" className="show-password-button text-muted"
-                                                        onClick={() => setValues((prev: any) => ({ ...prev, showPassword: !prev.showPassword }))}>
-                                                        {values.showPassword ? (
-                                                            <i className="ri-eye-line align-middle"></i>
-                                                        ) : (
-                                                            <i className="ri-eye-off-line align-middle"></i>
-                                                        )}
-                                                    </Link>
-                                                    <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
-                                                </div>
+                                                <BaseInput
+                                                    label={SignUpLabel.Password}
+                                                    name="password"
+                                                    type="password"
+                                                    placeholder={InputPlaceHolder(SignUpLabel.Password)}
+                                                    value={formik.values.password}
+                                                    onChange={formik.handleChange}
+                                                    handleBlur={formik.handleBlur}
+                                                    error={formik.errors.password}
+                                                    touched={formik.touched.password}
+                                                    labelClassName="text-default d-block"
+                                                    containerClassName="mb-0"
+                                                    fullWidth
+                                                />
                                                 <div className="mt-2">
                                                     <div className="d-flex align-items-center justify-content-between flex-wrap">
                                                         <div className="form-check">
@@ -120,34 +97,51 @@ const Cover: React.FC<CoverProps> = () => {
                                                                 Remember me
                                                             </label>
                                                         </div>
-                                                        <Link to={`${import.meta.env.BASE_URL}pages/authentication/reset-password/cover`} className="link-danger fw-medium fs-12">Forget password ?</Link>
+                                                        <BaseButton
+                                                            type="button"
+                                                            className="link-danger fw-medium fs-12 bg-transparent border-0 p-0"
+                                                            noPadding
+                                                            unstyled
+                                                            onClick={() =>
+                                                                navigate(
+                                                                    `${import.meta.env.BASE_URL}pages/authentication/reset-password/cover`
+                                                                )
+                                                            }
+                                                        >
+                                                            Forget password ?
+                                                        </BaseButton>
                                                     </div>
                                                 </div>
                                             </Col>
                                         </Row>
                                         <div className="d-grid mt-3">
-                                            <SpkButton Buttontype="submit" Customclass="btn btn-primary">Sign In</SpkButton>
+                                            <BaseButton
+                                                type="submit"
+                                                label="Sign In"
+                                                className="w-100"
+                                                loader={btnLoader || formik.isSubmitting}
+                                                disabled={btnLoader || formik.isSubmitting}
+                                            />
                                         </div>
                                     </Form>
                                     <div className="text-center my-3 authentication-barrier">
                                         <span className="op-4 fs-13">OR</span>
                                     </div>
-                                    <div className="d-grid mb-3">
-                                        <SpkButton Customclass="btn btn-white btn-w-lg border d-flex align-items-center justify-content-center flex-fill mb-3">
-                                            <span className="avatar avatar-xs">
-                                                <Image  src={google} alt="" />
-                                            </span>
-                                            <span className="lh-1 ms-2 fs-13 text-default fw-medium">Signup with Google</span>
-                                        </SpkButton>
-                                        <SpkButton Customclass="btn btn-white btn-w-lg border d-flex align-items-center justify-content-center flex-fill">
-                                            <span className="avatar avatar-xs">
-                                                <Image  src={facebook} alt="" />
-                                            </span>
-                                            <span className="lh-1 ms-2 fs-13 text-default fw-medium">Signup with Facebook</span>
-                                        </SpkButton>
-                                    </div>
-                                    <div className="text-center mt-3 fw-medium">
-                                        Dont have an account? <Link to={`${import.meta.env.BASE_URL}pages/authentication/sign-up/cover`} className="text-primary">Sign Up</Link>
+                                    <div className="text-center mt-3 fw-medium d-flex justify-content-center align-items-center gap-2 flex-wrap">
+                                        <span className="mb-0">Dont have an account?</span>
+                                        <BaseButton
+                                            type="button"
+                                            className="text-primary bg-transparent border-0 p-0"
+                                            noPadding
+                                            unstyled
+                                            onClick={() =>
+                                                navigate(
+                                                    `${import.meta.env.BASE_URL}pages/authentication/sign-up/cover`
+                                                )
+                                            }
+                                        >
+                                            Sign Up
+                                        </BaseButton>
                                     </div>
                                 </Card.Body>
                             </Card>

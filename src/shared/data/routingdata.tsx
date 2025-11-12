@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-const Sales = lazy(() => import('../../components/dashboards/sale/sale'));
-const Analytics = lazy(() => import('../../components/dashboards/analytics/analytics'));
+const Sales = lazy(() => import('../../components/pages/dashboards/sale/sale'));
+const Analytics = lazy(() => import('../../components/pages/dashboards/analytics/analytics'));
 const ProfileSettings = lazy(() => import('../../components/pages/profile-settings/profile-settings'));
 
 export const RouteData = [
