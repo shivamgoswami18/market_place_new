@@ -1,5 +1,4 @@
 import type { FC, MouseEvent, ReactNode } from "react";
-import SpkButton from "../../shared/@spk-reusable-components/general-reusable/reusable-uielements/spk-buttons";
 
 type ButtonType = "button" | "reset" | "submit";
 
@@ -46,11 +45,11 @@ const BaseButton: FC<BaseButtonProps> = ({
 
   return (
     <div className={divClass}>
-      <SpkButton
-        Buttontype={type}
-        Customclass={combinedClassName}
-        onClickfunc={onClick}
-        Disabled={disabled || isLoading}
+      <button
+        type={type}
+        className={combinedClassName}
+        onClick={onClick}
+        disabled={disabled || isLoading}
       >
         {isLoading ? (
           <span
@@ -65,7 +64,7 @@ const BaseButton: FC<BaseButtonProps> = ({
             {endIcon && <span className="d-inline-flex ms-2">{endIcon}</span>}
           </>
         )}
-      </SpkButton>
+      </button>
     </div>
   );
 };
