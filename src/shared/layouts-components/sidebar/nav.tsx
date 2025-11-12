@@ -8,9 +8,12 @@ export const MENUITEMS: any = [
      menutitle:'MAIN'
   },
   {
-    title: "Dashboards", icon: Svgicons.Dashboardicon, type: "sub", active: false, dirchange: false, children: [
-      { path: `${import.meta.env.BASE_URL}dashboards/sales`, icon: Svgicons.Salesicon, type: "link", active: false, selected: false, dirchange: false, title: "Sales" },
-      { path: `${import.meta.env.BASE_URL}dashboards/analytics`, icon: Svgicons.Analyticsicon, type: "link", active: false, selected: false, dirchange: false, title: "Analytics" },
-    ]
+    title: "Dashboard",
+    icon: Svgicons.Dashboardicon,
+    type: "link",
+    path: `${import.meta.env.BASE_URL}dashboard`,
+    active: false,
+    selected: false,
+    dirchange: false,
   },
 ]

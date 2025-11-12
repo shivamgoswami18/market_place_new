@@ -700,7 +700,7 @@ const Sidebar = () => {
 				{/* <!-- Start::main-sidebar-header --> */}
 
 				<div className="main-sidebar-header">
-					<Link to={`${import.meta.env.BASE_URL}dashboards/sales/`} className="header-logo">
+					<Link to={`${import.meta.env.BASE_URL}dashboard`} className="header-logo">
 						<Image src={logo1} alt="logo" className="desktop-logo" />
 						<Image src={logo2} alt="logo" className="toggle-dark" />
 						<Image src={logo3} alt="logo" className="desktop-dark" />
@@ -785,19 +785,13 @@ const Sidebar = () => {
 							{/* <!-- End::slide --> */}
 							{/* <!-- Start::slide --> */}
 							<li className="slide">
-								<Link to={`${import.meta.env.BASE_URL}pages/authentication/sign-in/cover`} className="side-menu__item">
+								<Link to={`${import.meta.env.BASE_URL}sign-in`} className="side-menu__item">
 									<svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><path d="M48,40H208a16,16,0,0,1,16,16V200a16,16,0,0,1-16,16H48a0,0,0,0,1,0,0V40A0,0,0,0,1,48,40Z" opacity="0.2" /><polyline points="112 40 48 40 48 216 112 216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="112" y1="128" x2="224" y2="128" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><polyline points="184 88 224 128 184 168" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
 									<span className="side-menu__label">Logout</span>
 								</Link>
 							</li>
 							{/* <!-- End::slide --> */}
 							{/* <!-- Start::slide --> */}
-							<li className="slide">
-								<Link to={`${import.meta.env.BASE_URL}pages/profile-settings`} className="side-menu__item">
-									<svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><path d="M205.31,71.08a16,16,0,0,1-20.39-20.39A96,96,0,0,0,63.8,199.38h0A72,72,0,0,1,128,160a40,40,0,1,1,40-40,40,40,0,0,1-40,40,72,72,0,0,1,64.2,39.37A96,96,0,0,0,205.31,71.08Z" opacity="0.2" /><line x1="200" y1="40" x2="200" y2="28" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><circle cx="200" cy="56" r="16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="186.14" y1="48" x2="175.75" y2="42" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="186.14" y1="64" x2="175.75" y2="70" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="200" y1="72" x2="200" y2="84" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="213.86" y1="64" x2="224.25" y2="70" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="213.86" y1="48" x2="224.25" y2="42" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><circle cx="128" cy="120" r="40" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><path d="M63.8,199.37a72,72,0,0,1,128.4,0" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><path d="M222.67,112A95.92,95.92,0,1,1,144,33.33" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
-									<span className="side-menu__label">Profile Settings</span>
-								</Link>
-							</li>
 							{/* <!-- End::slide --> */}
 							{/* <!-- Start::slide --> */}
 							<li className="slide">

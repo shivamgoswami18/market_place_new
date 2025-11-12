@@ -1,10 +1,6 @@
 import { lazy } from 'react'
-const Sales = lazy(() => import('../../components/pages/dashboards/sale/sale'));
-const Analytics = lazy(() => import('../../components/pages/dashboards/analytics/analytics'));
-const ProfileSettings = lazy(() => import('../../components/pages/profile-settings/profile-settings'));
+const Dashboard = lazy(() => import('../../components/Pages/Dashboard/Dashboard.tsx'));
 
 export const RouteData = [
-    { id: 1, path: `${import.meta.env.BASE_URL}dashboards/sales`, element: <Sales /> },
-    { id: 2, path: `${import.meta.env.BASE_URL}dashboards/analytics`, element: <Analytics /> },
-    { id: 3, path: `${import.meta.env.BASE_URL}pages/profile-settings`, element: <ProfileSettings /> },
+    { id: 1, path: `${import.meta.env.BASE_URL}dashboard`, element: <Dashboard /> },
 ];
