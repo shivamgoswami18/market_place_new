@@ -43,7 +43,7 @@ const SignIn: React.FC<SignInProps> = () => {
 
   return (
     <Fragment>
-      <Seo title="Signin" />
+      <Seo title="Sign in" />
 
       <Row className="authentication authentication-cover-main mx-0">
         <Col xxl={9} xl={9}>
