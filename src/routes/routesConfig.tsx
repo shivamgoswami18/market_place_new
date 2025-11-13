@@ -1,10 +1,10 @@
 import { lazy } from "react";
 import type { ReactNode } from "react";
 
-const App = lazy(() => import("../pages/App"));
-const AuthenticationLayout = lazy(() => import("../pages/AuthLayout"));
-const SignIn = lazy(() => import("../components/Pages/Authentication/SignIn"));
-const Dashboard = lazy(() => import("../components/Pages/Dashboard/Dashboard"));
+const App = lazy(() => import("../App"));
+const AuthenticationLayout = lazy(() => import("../layout/AuthLayout"));
+const SignIn = lazy(() => import("../pages/Authentication/SignIn"));
+const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
 
 export type RouteConfig = {
   path: string;

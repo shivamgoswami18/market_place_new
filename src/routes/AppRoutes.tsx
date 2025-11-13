@@ -8,7 +8,7 @@ const AppRoutes = () => {
       <Route index element={<Navigate to={redirectPath} replace />} />
 
       {publicRoutes.map(({ path, element, children }) => (
-        <Route key={path} path={path} element={element}>
+        <Route key={`${path}-public`} path={path} element={element}>
           {children?.map(({ path: childPath, element: childElement }) => (
             <Route key={`${path}-${childPath}`} path={childPath} element={childElement} />
           ))}
@@ -16,12 +16,14 @@ const AppRoutes = () => {
       ))}
 
       {privateRoutes.map(({ path, element, children }) => (
-        <Route key={path} path={path} element={<ProtectedRoute>{element}</ProtectedRoute>}>
+        <Route key={`${path}-private`} path={path} element={<ProtectedRoute>{element}</ProtectedRoute>}>
           {children?.map(({ path: childPath, element: childElement }) => (
             <Route key={`${path}-${childPath}`} path={childPath} element={childElement} />
           ))}
         </Route>
       ))}
+
+      <Route path="*" element={<Navigate to={redirectPath} replace />} />
     </Routes>
   );
 };
