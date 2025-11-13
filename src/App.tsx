@@ -1,11 +1,11 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Initialload } from "./contextapi";
-import Backtotop from "./layout/components/backtotop/backtotop";
-import Footer from "./layout/components/footer/footer";
-import Sidebar from "./layout/components/sidebar/sidebar";
-import Header from "./layout/components/header/header";
-import Switcher from "./layout/components/switcher/switcher";
+import Backtotop from "./components/Common/BackToTop/BackToTop";
+import Footer from "./components/Common/Footer/Footer";
+import Sidebar from "./components/Common/Sidebar/Sidebar";
+import Header from "./components/Common/Header/Header";
+import Switcher from "./components/Common/Switcher/Switcher";
 import { data$, getState } from "./layout/services/switcherServices";
 
 function App() {

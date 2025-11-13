@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Initialload } from "../contextapi";
-import Landingswitcher from "./components/switcher/landing-switcher";
+import Landingswitcher from "../components/Common/Switcher/LandingSwitcher";
 
 const AuthenticationLayout = () => {
   const location = useLocation();

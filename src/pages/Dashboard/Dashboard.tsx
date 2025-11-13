@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Seo from "../../layout/components/seo/seo";
+import Seo from "../../components/Common/Seo/Seo";
 
 const Dashboard = () => (
   <Fragment>

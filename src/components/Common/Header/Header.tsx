@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Dropdown, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getState, setState } from "../../services/switcherServices";
+import { getState, setState } from "../../../layout/services/switcherServices";
 import logo1 from "../../../assets/images/brand-logos/desktop-logo.png";
 import logo2 from "../../../assets/images/brand-logos/toggle-dark.png";
 import logo3 from "../../../assets/images/brand-logos/desktop-dark.png";

@@ -1,11 +1,11 @@
 
 import { Fragment, useContext, useEffect, useState } from 'react'
 import { Col, Form, Nav, Offcanvas, OffcanvasBody, OffcanvasHeader, OffcanvasTitle, Row, TabContainer, TabContent, TabPane } from 'react-bootstrap'
-import { data$, getState } from '../../services/switcherServices'
+import { data$, getState } from '../../../layout/services/switcherServices'
 import { Link } from 'react-router-dom'
-import SpkButton from '../ui/SpkButton'
-import SpkTooltips from '../ui/SpkTooltips'
-import { ClosedMenu, DefaultMenu, DetachedFn, DoubletFn, iconOverlayFn, IconText, Reset, ThemeBackgroundColor, ThemePrimaryColor, setBgImage, setDirection, setPageStyle, setLayout, setMenuPosition, setHeaderPosition, setMenuStyle, setHeaderStyle, setPrimaryColor, updateTheme, updateLayout, updateNavStyle, updateBackgroundColor, LocalStorageBackup } from '../../data/switcherdata'
+import SpkButton from '../Ui/SpkButton'
+import SpkTooltips from '../Ui/SpkTooltips'
+import { ClosedMenu, DefaultMenu, DetachedFn, DoubletFn, iconOverlayFn, IconText, Reset, ThemeBackgroundColor, ThemePrimaryColor, setBgImage, setDirection, setPageStyle, setLayout, setMenuPosition, setHeaderPosition, setMenuStyle, setHeaderStyle, setPrimaryColor, updateTheme, updateLayout, updateNavStyle, updateBackgroundColor, LocalStorageBackup } from '../../../layout/data/switcherdata'
 import { Initialload } from '../../../contextapi'
 
 const Switcher = ({ show, handleClose }: any) => {

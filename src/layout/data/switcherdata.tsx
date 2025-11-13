@@ -2,7 +2,7 @@
 
 import { useState, type ClassAttributes, type InputHTMLAttributes, type JSX } from 'react';
 import { getState, setState } from '../services/switcherServices';
-import { MENUITEMS } from '../components/sidebar/nav';
+import { MENUITEMS } from '../../components/Common/Sidebar/Nav';
 
 const switcherSelector = (selector: any) => {
 

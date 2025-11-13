@@ -1,6 +1,6 @@
 
 
-import * as Svgicons from "./menusvg-icons";
+import * as Svgicons from "./Menusvg-icons";
 
 export const MENUITEMS: any = [
 

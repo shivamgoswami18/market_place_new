@@ -1,9 +1,9 @@
 
 
 import { Fragment, useEffect, useState } from 'react';
-import { data$, getState } from '../../services/switcherServices';
+import { data$, getState } from '../../../layout/services/switcherServices';
 import { Link } from 'react-router-dom';
-import SpkTooltips from '../ui/SpkTooltips';
+import SpkTooltips from '../Ui/SpkTooltips';
 
 const Menuloop = ({ MenuItems, level, handleToMenu, HoverToggleInnerMenuFn }: any) => {
   const handleClick = (event: any) => {

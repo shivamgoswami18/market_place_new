@@ -1,9 +1,9 @@
 
 import { Fragment, useEffect, useRef, useState } from 'react'
-import { MENUITEMS } from './nav'
-import Menuloop from './menuloop';
+import { MENUITEMS } from './Nav'
+import Menuloop from './MenuLoop';
 import SimpleBar from 'simplebar-react';
-import { data$, getState, setState } from '../../services/switcherServices';
+import { data$, getState, setState } from '../../../layout/services/switcherServices';
 import { Link, useLocation } from 'react-router-dom';
 import logo1 from "../../../assets/images/brand-logos/desktop-logo.png";
 import logo2 from "../../../assets/images/brand-logos/toggle-dark.png";
@@ -11,7 +11,7 @@ import logo3 from "../../../assets/images/brand-logos/desktop-dark.png";
 import logo4 from "../../../assets/images/brand-logos/toggle-logo.png";
 import face10 from "../../../assets/images/faces/10.jpg";
 import { Image } from 'react-bootstrap';
-import SpkTooltips from '../ui/SpkTooltips';
+import SpkTooltips from '../Ui/SpkTooltips';
 
 const Sidebar = () => {
 

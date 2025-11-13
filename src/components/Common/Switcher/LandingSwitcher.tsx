@@ -1,9 +1,9 @@
 
 import  { Fragment, useContext, useEffect, useState } from "react";
 import { Col, Form, Offcanvas, Row } from "react-bootstrap";
-import { data$, getState } from "../../services/switcherServices";
-import SpkButton from "../ui/SpkButton";
-import { updateTheme, Reset1, setDirection, setPrimaryColor, ThemePrimaryColor, LocalStorageBackup } from "../../data/switcherdata";
+import { data$, getState } from "../../../layout/services/switcherServices";
+import SpkButton from "../Ui/SpkButton";
+import { updateTheme, Reset1, setDirection, setPrimaryColor, ThemePrimaryColor, LocalStorageBackup } from "../../../layout/data/switcherdata";
 import { Initialload } from "../../../contextapi";
 
 const Landingswitcher = ({ show, handleClose }: any) => {

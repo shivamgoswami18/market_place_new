@@ -3,7 +3,7 @@ import { Card, Col, Form, Image, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Seo from "../../layout/components/seo/seo";
+import Seo from "../../components/Common/Seo/Seo";
 import togglelogo from "../../assets/images/brand-logos/toggle-logo.png";
 import BG9 from "../../assets/images/media/backgrounds/9.png";
 import media72 from "../../assets/images/media/media-72.png";
